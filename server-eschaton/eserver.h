@@ -54,12 +54,22 @@ ServerData* createServer(int port, int serverStatus, struct _u_instance instance
 
 typedef struct {
 
+  int map[170][5];
+  int players[6][100];
+
+} ModelData;
+
+ModelData* createModelData(int map[170][6], int players[6][100]);
+
+typedef struct {
+
   ServerData* sv;
   JsonData* jd;
+  ModelData* md;
 
 } GameObject;
 
-GameObject* createGameObj(ServerData* sv, JsonData* jd);
+GameObject* createGameObj(ServerData* sv, JsonData* jd, ModelData* md);
 
 void INITIATE_R(GameObject* game);
 

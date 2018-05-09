@@ -23,11 +23,23 @@ int main(int argc, char const *argv[])
 
   Key_t* map_k = "map";
 
+  // Model Variables
+  int map[170][6];
+  for (int i = 0; i < 170; i++)
+  {
 
+  }
 
+  int players[6][100];
+  for (int i = 0; i < 6; i++)
+  {
+    (players[i], "%d ", i);
+  }
+
+  ModelData* md = createModelData(map, players);
   JsonData* jd = createJsonData(root_j, map_j, map_k, error_j);
   ServerData* sv = createServer(port, serverStatus, instance, input, inputLen, output, outputLen);
-  GameObject* game = createGameObj(sv, jd);
+  GameObject* game = createGameObj(sv, jd, md);
 
   INITIATE_R(game);
 

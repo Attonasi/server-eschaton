@@ -29,12 +29,21 @@ JsonData* createJsonData(json_t *root_j, json_t *map_j, Key_t* map_k, json_error
   return jd;
 }
 
-GameObject* createGameObj(ServerData* sv, JsonData* jd)
+ModelData* createModelData(int map[170][6], int players[6][100])
+{
+  ModelData* md = malloc(sizeof(ModelData));
+
+
+  return md;
+}
+
+GameObject* createGameObj(ServerData* sv, JsonData* jd, ModelData* md)
 {
   GameObject* game = malloc(sizeof(GameObject));
 
   game->sv = sv;
   game->jd = jd;
+  game->md = md;
 
   return game;
 }
