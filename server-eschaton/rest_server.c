@@ -63,7 +63,7 @@ int harvestPOST_R(U_Request_t* request, U_Response_t* response, void* input)
   strcpy(game->sv->input, request->binary_body);
   game->sv->input[request->binary_body_length] = 0;
 
-  printf("Called process move! input: %s\n", game->sv->input);
+  printf("Called Harvest! input: %s\n", game->sv->input);
 
   game->jd->root_j = ulfius_get_json_body_request(request, &game->jd->error_j);
   if(game->jd->root_j == NULL)
@@ -73,6 +73,8 @@ int harvestPOST_R(U_Request_t* request, U_Response_t* response, void* input)
   }
 
   strcpy(game->sv->input, game->sv->output);
+
+  printf("finished Harvest! output: %s\n", game->sv->output);
 
   ulfius_set_string_body_response(response, 200, game->sv->output);
 
